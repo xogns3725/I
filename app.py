@@ -59,6 +59,12 @@ def team_create():
 
     return redirect(url_for('home'))
 
+@app.route("/mypage/<int:user_id>/")
+def mypage(user_id):
+    user = Team.query.filter_by(id=user_id).first()
+    return render_template('mypage.html', data = user)
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
