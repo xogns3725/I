@@ -9,8 +9,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] =\
-    'sqlite:///' + os.path.join(basedir, 'database.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'database.db')
 
 db = SQLAlchemy(app)
 
@@ -64,7 +63,28 @@ def mypage(user_id):
     user = Team.query.filter_by(id=user_id).first()
     return render_template('mypage.html', data = user)
 
+@app.route("/edit/<int:item_id>", methods=['GET', 'POST'])
+def edit_item(item_id):
+    item = Team.query.get_or_404(item_id)
+    if request.method == 'POST':
+        item.username = request.form['username']
+        item.part = request.form['part']
+        item.mbti = request.form['mbti']
+        item.comment = request.form['comment']
+        item.advantage = request.form['advantage']
+        item.tmi = request.form['tmi']
+        item.blog = request.form['blog']
+        item.image_url = request.form['image_url']
+        db.session.commit()
+        return redirect(url_for('home'))
+    return render_template('edit.html', item=item)
 
+@app.route("/delete/<int:item_id>")
+def delete_item(item_id):
+    item = Team.query.get_or_404(item_id)
+    db.session.delete(item)
+    db.session.commit()
+    return redirect(url_for('home'))
 
 if __name__ == '__main__':
     app.run(debug=True)

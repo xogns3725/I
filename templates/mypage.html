@@ -92,6 +92,12 @@
 <body>
 	<div class="container">
 		<div class="mod">
+			<!-- 수정 버튼 추가 -->
+			<a href="{{ url_for('edit_item', item_id=item.id) }}" class="btn btn-primary">수정</a>
+
+			<!-- 삭제 버튼 추가 -->
+			<a href="{{ url_for('delete_item', item_id=item.id) }}" class="btn btn-danger">삭제</a>
+
 		</div>
 		<br>
 		<div class="role-box">
