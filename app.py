@@ -43,21 +43,21 @@ def home():
 @app.route('/create', methods=['POST'])
 def team_create():
     # form으로 데이터 입력 받기
-    username_receive = request.args.get("username")
-    part_receive = request.args.get("part")
-    mbti_receive = request.args.get("mbti")
-    comment_receive = request.args.get("comment")
-    advantage_receive = request.args.get("advantage")
-    tmi_receive = request.args.get("tmi")
-    blog_receive = request.args.get("blog")
-    image_receive = request.args.get("image_url")
+    username_receive = request.form.get("username")
+    part_receive = request.form.get("part")
+    mbti_receive = request.form.get("mbti")
+    comment_receive = request.form.get("comment")
+    advantage_receive = request.form.get("advantage")
+    tmi_receive = request.form.get("tmi")
+    blog_receive = request.form.get("blog")
+    image_receive = request.form.get("image_url")
 
     team = Team(username=username_receive, part=part_receive, mbti=mbti_receive, comment=comment_receive, 
     advantage=advantage_receive, tmi=tmi_receive, blog=blog_receive, image_url=image_receive)
     db.session.add(team)
     db.session.commit()
 
-    return redirect(url_for('render_team_filter', username=username_receive))
+    return redirect(url_for('home'))
 
 
 if __name__ == '__main__':
