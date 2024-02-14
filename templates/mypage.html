@@ -25,6 +25,10 @@
 			display: flex;
 			flex-direction: column;
 			align-items: center;
+
+			background-image: url("https://images.unsplash.com/photo-1511933801659-156d99ebea3e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzc1fHxiYWNrZ3JvdW5kJTIwdGV4dHVyZXxlbnwwfHwwfHx8MA%3D%3D");
+			background-position: center;
+			background-size: cover;
 		}
 
 		.role-box {
@@ -86,6 +90,10 @@
 			margin-left: 60px;
 			/* 좌측 정렬 */
 		}
+
+		.mod {
+			margin: 0px 0px 0px auto;
+		}
 	</style>
 </head>
 
@@ -93,9 +101,13 @@
 	<div class="container">
 		<div class="mod">
 			<!-- 수정 버튼 추가 -->
-			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">수정</button>
+			<button type="button" class="btn btn-outline-dark">
+				<a href="{{ url_for('home') }}">Home</a>
+			</button>
+			<button type="button" class="btn btn-outline-dark" data-bs-toggle="modal"
+				data-bs-target="#editModal">수정</button>
 			<!-- 삭제 버튼 추가 -->
-			<a href="{{ url_for('delete_item', item_id=data.id) }}" class="btn btn-danger">삭제</a>
+			<a href="{{ url_for('delete_item', item_id=data.id) }}" class="btn btn-outline-dark">삭제</a>
 		</div>
 		<br>
 		<div class="role-box">
@@ -112,9 +124,7 @@
 			<p><strong>TMI:</strong> {{data.tmi}}</p>
 			<p><strong>블로그 주소:</strong> {{data.blog}}</p>
 		</div>
-		<button type="button" class="btn btn-primary">
-			<a href="{{ url_for('home') }}">Home</a>
-		</button>
+
 	</div>
 
 	<!-- Bootstrap JS -->
