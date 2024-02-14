@@ -87,16 +87,18 @@
         </div>
     </div>
 
-    <!-- 본문 -->
+    <!-- main -->
     <section class="py-5 border-bottom" id="features">
         <div class="container">
-            <div class="row gx-5">
-                {% for team in data %}
-                <div class="col-lg-4" id="circle">
-                    <a href="{{ url_for('mypage', user_id=team.id) }}">
-                        <img src="{{ team.image_url }}" id="image" alt="...">
-                    </a>
-                    <h3 class="text-center">{{team.part}}</p>
+            <div class="row justify-content-center gx-5">
+                {% for members in data %}
+                <div class="col-lg-3 col-md-3 col-sm-6 mx-auto ml-lg-5">
+                    <img class="rounded-circle" src="{{ members.image_url }}" alt="..." width="140" height="140">
+                    <h2>{{ members.username }}</h2>
+                    <p>{{ members.part }}</p>
+                    <!-- button -->
+                    <p><a class="btn btn-secondary" href="{{ url_for('mypage', user_id=members.id)}}" role="button">View
+                            details »</a></p>
                 </div>
                 {% endfor %}
             </div>
