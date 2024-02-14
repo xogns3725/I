@@ -93,11 +93,9 @@
 	<div class="container">
 		<div class="mod">
 			<!-- 수정 버튼 추가 -->
-			<a href="{{ url_for('edit_item', item_id=item.id) }}" class="btn btn-primary">수정</a>
-
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">수정</button>
 			<!-- 삭제 버튼 추가 -->
-			<a href="{{ url_for('delete_item', item_id=item.id) }}" class="btn btn-danger">삭제</a>
-
+			<a href="{{ url_for('delete_item', item_id=data.id) }}" class="btn btn-danger">삭제</a>
 		</div>
 		<br>
 		<div class="role-box">
@@ -119,10 +117,67 @@
 		</button>
 	</div>
 
-	<!-- bootstrap JS -->
+	<!-- Bootstrap JS -->
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
+	<!-- 수정 모달 창 -->
+	<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form action="{{ url_for('edit_item', item_id=data.id) }}" method="POST">
+					<div class="modal-header">
+						<h5 class="modal-title" id="editModalLabel">프로필 수정</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<!-- 수정할 내용을 입력받는 폼 -->
+						<div class="mb-3">
+							<label for="username" class="form-label">이름</label>
+							<input type="text" class="form-control" id="username" name="username"
+								value="{{data.username}}">
+						</div>
+						<div class="mb-3">
+							<label for="part" class="form-label">역할</label>
+							<input type="text" class="form-control" id="part" name="part" value="{{data.part}}">
+						</div>
+						<div class="mb-3">
+							<label for="mbti" class="form-label">MBTI</label>
+							<input type="text" class="form-control" id="mbti" name="mbti" value="{{data.mbti}}">
+						</div>
+						<div class="mb-3">
+							<label for="comment" class="form-label">각오</label>
+							<input type="text" class="form-control" id="comment" name="comment"
+								value="{{data.comment}}">
+						</div>
+						<div class="mb-3">
+							<label for="advantage" class="form-label">장점</label>
+							<input type="text" class="form-control" id="advantage" name="advantage"
+								value="{{data.advantage}}">
+						</div>
+						<div class="mb-3">
+							<label for="tmi" class="form-label">TMI</label>
+							<input type="text" class="form-control" id="tmi" name="tmi" value="{{data.tmi}}">
+						</div>
+						<div class="mb-3">
+							<label for="blog" class="form-label">블로그주소</label>
+							<input type="text" class="form-control" id="blog" name="blog" value="{{data.blog}}">
+						</div>
+						<div class="mb-3">
+							<label for="image_url" class="form-label">사진</label>
+							<input type="text" class="form-control" id="image_url" name="image_url"
+								value="{{data.image_url}}">
+						</div>
+						<!-- 나머지 수정할 내용에 대한 폼 요소들을 추가하세요 -->
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+						<button type="submit" class="btn btn-primary">저장</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>
