@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>I</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+
+</head>
+
+<body>
+    <!-- 제목-->
+    <header class="bg-dark py-5">
+        <div class="container px-5">
+            <div class="row gx-5 justify-content-center">
+                <div class="title col-lg-6">
+                    <div class="text-center my-5">
+                        <h1 class="display-5 fw-bolder text-white mb-2">아이들의 모임</h1>
+                        <hr><br>
+                        <p class="lead text-white-50 mb-4">성격은 소극적 업무는 적극적</p>
+                        <br>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">팀에 참가하기</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 모달 -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">신청 양식</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="{{ url_for('team_create') }}" method="POST">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="partInput" class="form-label">역할</label>
+                            <input type="text" class="form-control" id="partInput" name="part">
+                        </div>
+                        <div class="mb-3">
+                            <label for="nameInput" class="form-label">이름</label>
+                            <input type="text" class="form-control" id="nameInput" name="username">
+                        </div>
+                        <div class="mb-3">
+                            <label for="mbtiInput" class="form-label">MBTI</label>
+                            <input type="text" class="form-control" id="mbtiInput" name="mbti">
+                        </div>
+                        <div class="mb-3">
+                            <label for="commentInput" class="form-label">각오</label>
+                            <input type="text" class="form-control" id="commentInput" name="comment">
+                        </div>
+                        <div class="mb-3">
+                            <label for="advantageInput" class="form-label">장점</label>
+                            <input type="text" class="form-control" id="advantageInput" name="advantage">
+                        </div>
+                        <div class="mb-3">
+                            <label for="tmiInput" class="form-label">TMI</label>
+                            <input type="text" class="form-control" id="tmiInput" name="tmi">
+                        </div>
+                        <div class="mb-3">
+                            <label for="blogInput" class="form-label">블로그주소</label>
+                            <input type="text" class="form-control" id="blogInput" name="blog">
+                        </div>
+                        <div class="mb-3">
+                            <label for="imageInput" class="form-label">사진</label>
+                            <input type="text" class="form-control" id="imageInput" name="image_url">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">취소하기</button>
+                        <button type="submit" class="btn btn-dark">신청하기</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 본문 -->
+    <section class="py-5 border-bottom" id="features">
+        <div class="container">
+            <div class="row gx-5">
+                {% for team in data %}
+                <div class="col-lg-4" id="circle">
+                    <a href="mypage.html">
+                        <img src="{{ team.image_url }}" id="image" alt="...">
+                    </a>
+                    <h3 class="text-center">{{team.part}}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer-->
+    <footer class="py-5 bg-dark"></footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core theme JS-->
+    <!-- <script src="js/scripts.js"></script> -->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+
+</html>
