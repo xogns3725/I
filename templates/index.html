@@ -92,13 +92,13 @@
         <div class="container">
             <div class="row gx-5">
                 {% for team in data %}
-                <div class="col-lg-4" id="circle">
-                    <a href="{{ url_for('mypage', user_id=team.id) }}">
-                        <img src="{{ team.image_url }}" id="image" alt="...">
-                    </a>
-                    <h3 class="text-center">{{team.part}}</p>
-                </div>
-                {% endfor %}
+            <div class="col-lg-4 d-flex flex-column align-items-center"> <!-- Flexbox 사용 -->
+                <a href="{{ url_for('mypage', user_id=team.id) }}" class="circle-container">
+                    <img src="{{ team.image_url }}" alt="...">
+                </a>
+                <h3 class="text-center mt-3">{{team.part}}</h3> <!-- 위쪽 마진 추가 -->
+            </div>
+            {% endfor %}
             </div>
         </div>
     </section>
