@@ -224,6 +224,7 @@ footer {
   width: 55px;
   height: 55px;
   text-align: center;
+  border-radius: 50%;
   background-color: #007bff; /* 배경색 지정 */
   color: #fff; /* 글자색 지정 */
   text-decoration: none;
