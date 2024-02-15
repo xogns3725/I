@@ -144,6 +144,12 @@ body {
   background-color: var(--bs-body-bg);
 }
 
+header {
+    background-image: url("https://images.unsplash.com/photo-1514454529242-9e4677563e7b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fCVFRCU5NSU5OCVFQiU4QSU5OHxlbnwwfHwwfHx8MA%3D%3D");
+    background-position: center;
+    background-size: cover;
+}
+
 a {
   color: var(--bs-link-color);
   text-decoration: underline;
