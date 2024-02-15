@@ -230,9 +230,9 @@ footer {
   width: 55px;
   height: 55px;
   text-align: center;
+  border-radius: 50%;
   background-color: #007bff; /* 배경색 지정 */
   color: #fff; /* 글자색 지정 */
-  border-radius: 50%; /* 원형 모양으로 버튼 모양을 만듦 */
   text-decoration: none;
   transition: background-color 0.3s ease; /* 배경색 전환 애니메이션 */
 }
