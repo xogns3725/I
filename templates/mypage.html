@@ -86,6 +86,59 @@
 			margin-left: 60px;
 			/* 좌측 정렬 */
 		}
+
+		#floating-button {
+			position: fixed;
+			bottom: 100px;
+			right: 100px;
+			z-index: 1000;
+			/* 다른 요소 위에 표시되도록 z-index 설정 */
+		}
+
+		#back-to-top-button {
+			display: flex;
+			/* Flexbox 사용 */
+			justify-content: center;
+			/* 수평 가운데 정렬 */
+			align-items: center;
+			/* 수직 가운데 정렬 */
+			width: 55px;
+			height: 55px;
+			text-align: center;
+			background-color: #007bff;
+			/* 배경색 지정 */
+			color: #fff;
+			/* 글자색 지정 */
+			border-radius: 50%;
+			/* 원형 모양으로 버튼 모양을 만듦 */
+			text-decoration: none;
+			transition: background-color 0.3s ease;
+			/* 배경색 전환 애니메이션 */
+		}
+
+		#back-to-top-button:hover {
+			background-color: #0056b3;
+			/* 마우스 호버 시 배경색 변경 */
+		}
+
+		@keyframes bounce {
+
+			0%,
+			100% {
+				transform: translateY(0);
+				/* 시작과 끝 지점 */
+			}
+
+			50% {
+				transform: translateY(-20px);
+				/* 중간 지점, 위로 20px 이동 */
+			}
+		}
+
+		#floating-button {
+			animation: bounce 2s infinite;
+			/* bounce 애니메이션을 2초 동안 반복 */
+		}
 	</style>
 </head>
 
@@ -112,9 +165,6 @@
 			<p><strong>TMI:</strong> {{data.tmi}}</p>
 			<p><strong>블로그 주소:</strong> {{data.blog}}</p>
 		</div>
-		<button type="button" class="btn btn-primary">
-			<a href="{{ url_for('home') }}">Home</a>
-		</button>
 	</div>
 
 	<!-- Bootstrap JS -->
@@ -178,6 +228,18 @@
 			</div>
 		</div>
 	</div>
+	<div id="floating-button">
+		<a href="{{ url_for('home') }}" id="back-to-top-button"><i class="fas fa-arrow-up">Home</i></a>
+	</div>
+
+	<script>
+		window.onload = function () {
+			document.getElementById("back-to-top-button").addEventListener("click", function (event) {
+				event.preventDefault(); // 기본 동작 방지
+				window.location.href = "/"; // 홈으로 이동
+			});
+		};
+	</script>
 </body>
 
 </html>

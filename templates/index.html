@@ -79,7 +79,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">취소하기</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">취소하기</button>
                         <button type="submit" class="btn btn-dark">신청하기</button>
                     </div>
                 </form>
@@ -92,19 +92,29 @@
         <div class="container">
             <div class="row gx-5">
                 {% for team in data %}
-            <div class="col-lg-4 d-flex flex-column align-items-center"> <!-- Flexbox 사용 -->
-                <a href="{{ url_for('mypage', user_id=team.id) }}" class="circle-container">
-                    <img src="{{ team.image_url }}" alt="...">
-                </a>
-                <h3 class="text-center mt-3">{{team.part}}</h3> <!-- 위쪽 마진 추가 -->
-            </div>
-            {% endfor %}
+                <div class="col-lg-4 d-flex flex-column align-items-center">
+                    <!-- Flexbox 사용 -->
+                    <a href="{{ url_for('mypage', user_id=team.id) }}" class="circle-container">
+                        <img src="{{ team.image_url }}" alt="...">
+                    </a>
+                    <h3 class="text-center mt-3">{{team.part}}</h3> <!-- 위쪽 마진 추가 -->
+                </div>
+                {% endfor %}
             </div>
         </div>
     </section>
 
+
     <!-- Footer-->
-    <footer class="py-5 bg-dark"></footer>
+    <!-- <footer class="py-5 bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center text-white">
+                    내용 추가하기
+                </div>
+            </div>
+        </div>
+    </footer> -->
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -115,6 +125,15 @@
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    <script>
+        document.getElementById("back-to-top-button").addEventListener("click", function (event) {
+            event.preventDefault(); // 기본 동작 방지
+            window.location.href = "/"; // 홈으로 이동
+        });
+    </script>
+    <div id="floating-button">
+        <a href="{{ url_for('home') }}" id="back-to-top-button"><i class="fas fa-arrow-up">Home</i></a>
+    </div>
 </body>
 
 </html>
