@@ -8,8 +8,8 @@
 
 	<title>개인 페이지</title>
 	<style>
-		@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap')
-		
+		@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
 		* {
 			font-family: "Gowun Dodum", sans-serif;
 		}
@@ -18,10 +18,22 @@
 		body {
 			margin: 0;
 			padding: 0;
-
+			font-family: "Gowun Dodum", sans-serif;
 			background-image: url("https://images.unsplash.com/photo-1528460033278-a6ba57020470?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHwwfHx8MA%3D%3D");
 			background-position: center;
 			background-size: cover;
+		}
+
+		body,
+		html {
+			height: 100%;
+			/* 높이를 확실하게 설정 */
+			display: flex;
+			/* Flexbox 레이아웃 사용 */
+			justify-content: center;
+			/* 수평 가운데 정렬 */
+			align-items: center;
+			/* 수직 가운데 정렬 */
 		}
 
 		.container {
@@ -242,8 +254,7 @@
 				</form>
 			</div>
 		</div>
-	</div
-	>
+	</div>
 	<!-- 움직이는 Home버튼 -->
 	<div id="floating-button">
 		<a href="{{ url_for('home') }}" id="back-to-top-button"><i class="fas fa-arrow-up">Home</i></a>
