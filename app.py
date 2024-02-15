@@ -76,7 +76,7 @@ def edit_item(item_id):
         item.blog = request.form['blog']
         item.image_url = request.form['image_url']
         db.session.commit()
-        return redirect(url_for('home'))
+        return redirect(url_for('mypage', user_id=item_id))
     return render_template('edit.html', item=item)
 
 @app.route("/delete/<int:item_id>")
