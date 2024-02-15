@@ -8,18 +8,27 @@
 
 	<title>개인 페이지</title>
 	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap')
+		
+		* {
+			font-family: "Gowun Dodum", sans-serif;
+		}
+
 		/* 스타일링 */
 		body {
-			font-family: Arial, sans-serif;
 			margin: 0;
 			padding: 0;
+
+			background-image: url("https://images.unsplash.com/photo-1528460033278-a6ba57020470?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHwwfHx8MA%3D%3D");
+			background-position: center;
+			background-size: cover;
 		}
 
 		.container {
 			max-width: 800px;
 			margin: 20px auto;
 			padding: 20px;
-			border: 1px solid #ccc;
+			border: 1px solid rgb(241, 235, 235);
 			border-radius: 5px;
 			text-align: center;
 			display: flex;
@@ -28,7 +37,8 @@
 		}
 
 		.role-box {
-			border: 2px solid rgb(219, 110, 219);
+			box-shadow: 0px 0px 3px 0px rgb(42, 39, 178);
+			border-radius: 5px;
 			/* 보라색 테두리 */
 			padding: 3px;
 			/* 내용과 테두리 간격 조정 */
@@ -42,7 +52,8 @@
 		}
 
 		.intro-box {
-			border: 2px solid rgb(219, 110, 219);
+			box-shadow: 0px 0px 3px 0px rgb(42, 39, 178);
+			border-radius: 5px;
 			/* 보라색 테두리 */
 			padding: 3px;
 			/* 내용과 테두리 간격 조정 */
@@ -71,14 +82,14 @@
 			height: 200px;
 			/* 조정 가능한 크기 */
 			clip-path: circle(50%);
-			border: 2px solid rgb(219, 110, 219);
+			border: 2px solid rgb(98, 96, 220);
 			/* 보라색 테두리 */
 		}
 
 		.info {
 			text-align: left;
 			margin-bottom: 20px;
-			width: 100%;
+			width: 700px;
 		}
 
 		.info p {
@@ -138,6 +149,10 @@
 		#floating-button {
 			animation: bounce 2s infinite;
 			/* bounce 애니메이션을 2초 동안 반복 */
+		}
+
+		.mod {
+			margin: 0px 0px 0px auto;
 		}
 	</style>
 </head>
@@ -221,8 +236,8 @@
 						<!-- 나머지 수정할 내용에 대한 폼 요소들을 추가하세요 -->
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-						<button type="submit" class="btn btn-primary">저장</button>
+						<button type="button" class="btn btn-danger" data-bs-dismiss="modal">취소</button>
+						<button type="submit" class="btn btn-dark">저장</button>
 					</div>
 				</form>
 			</div>
