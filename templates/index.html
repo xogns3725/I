@@ -13,6 +13,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Core theme CSS (includes Bootstrap)-->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha384-5FTeDp8MQ2UPoCygp+oZP5rTpgU9j2DjCiG4qBz/gtk2boGGtJsqhqM+3Rux5vRP" crossorigin="anonymous">
 
 </head>
 
@@ -134,7 +136,10 @@
         });
     </script>
     <div id="floating-button">
-        <a href="{{ url_for('home') }}" id="back-to-top-button"><i class="fas fa-arrow-up">Home</i></a>
+        <a href="{{ url_for('home') }}" id="back-to-top-button">
+            <i class="fas fa-cloud"></i>
+            <span class="text">Home</span>
+        </a>
     </div>
 </body>
 
